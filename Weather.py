@@ -137,16 +137,21 @@ def getTime(timeSlot):
 
 
 
-
 def regtime(value,time,day):
+    dayCount = 400
     for valueSlot in value:
         timeSlot = valueSlot["validTime"]
         if getDate(timeSlot) == str(day):
             print(1)
             if getTime(timeSlot)== str(time):
                 return valueSlot["value"]
+            
+            if dayCount> int(str(time))-int(str(getTime(timeSlot))):
+                dayCount=int(str((time)))-int(str(getTime(timeSlot)))
+                
+                
         
-
+        return dayCount
 
 
         
