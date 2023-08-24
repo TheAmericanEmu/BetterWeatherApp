@@ -1,10 +1,12 @@
 import requests
 import json
 import time
+import math
 from datetime import date
 
-CC = 27.8006,-97.3964
 
+CC = 27.8006,-97.3964
+Chigo = 41.8781,-87.6298
 
 temperature =[ 0,"temperature"]
 dewpoint =[0,"dewpoint"]
@@ -138,7 +140,8 @@ def getTime(timeSlot):
 
 
 def regtime(value,time,day):
-    dayCount = 400
+    timeCount = 400
+    num = 0
     for valueSlot in value:
         timeSlot = valueSlot["validTime"]
         if getDate(timeSlot) == str(day):
@@ -146,12 +149,16 @@ def regtime(value,time,day):
             if getTime(timeSlot)== str(time):
                 return valueSlot["value"]
             
-            if dayCount> int(str(time))-int(str(getTime(timeSlot))):
-                dayCount=int(str((time)))-int(str(getTime(timeSlot)))
+    for valueSlot in value:
+        timeSlot = valueSlot["validTime"]
+        if getDate(timeSlot) == str(day):
+            if timeCount> int(str(time))-int(str(getTime(timeSlot))):
+                timeCount=int(str((time)))-int(str(getTime(timeSlot)))
+                num = valueSlot["value"]   
+    return num
                 
                 
         
-        return dayCount
 
 
         
@@ -160,7 +167,7 @@ def getweather(loc):
     t = time.localtime()
     hour = time.strftime("%H",t)
     day = date.today()
-    loction = requests.get(f"https://api.weather.gov/points/{CC[0]},{CC[1]}")
+    loction = requests.get(f"https://api.weather.gov/points/{loc[0]},{loc[1]}")
     loctionJson = json.loads(loction.content)
     grindpoints = requests.get(str(loctionJson["properties"]["forecastGridData"]))
     
@@ -169,10 +176,16 @@ def getweather(loc):
         temputureList = weather["properties"][stat[1]]["values"]
         stat[0]  = regtime(temputureList,hour,day)
 
-getweather(1)
+getweather(Chigo)
 
 for stat in Stats:
-    print(stat[0])
+    value = "No Data"
+    try:
+        value = round(stat[0],3)
+    except:
+        value = stat[0]
+    
+    print(f"The {stat[1]} is:{value}")
         
 
 
