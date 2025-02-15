@@ -3,11 +3,15 @@ from day_forecast import Day_Forecast
 class Hourly_Forecast(Day_Forecast):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+        self.hr_index=self.index//12
         self.dew_point = (kwargs["dewpoint"]["value"] * 9/5) + 32
         self.relative_humidity = kwargs["relativeHumidity"]["value"]
-    
+
+    def dew_point_to_c(self):
+        return (self.dew_point - 32) * 5/9
+
     def __str__(self):
-        return self.summary
+        return f"At {self.effect_startTime.time()} it will be {self.temperature}F with a {self.chance_of_rain}% chance of rain"
 
 if __name__=="__main__":
     day_forecast_temp=Hourly_Forecast(**{"number": 1,

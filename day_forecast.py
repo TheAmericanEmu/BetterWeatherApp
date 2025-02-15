@@ -1,7 +1,6 @@
 import time
 from dateutil import parser
 
-
 class Day_Forecast:
     def __init__(self,**kwargs) -> None:
         self.index:int=kwargs["number"]
@@ -15,6 +14,7 @@ class Day_Forecast:
         self.wind_direction:str=kwargs["windDirection"]
         self.summary:str=kwargs["shortForecast"]
         self.full_forecast:str=kwargs["detailedForecast"]
+        self.hourly_forecast:list=[]
 
     def __wind_speed_to_tuple(self,value:str) ->tuple:
         first_val = int(value.split(" ")[0])
@@ -27,8 +27,9 @@ class Day_Forecast:
         return (self.temperature - 32) * 5/9
 
     def __str__(self)->str:
-        return f"{self.name} {self.full_forecast}"
-
+        return f"{self.name} {self.full_forecast} \n"
+    def assign_hourly(self,hourly) -> None:
+        self.hourly_forecast.append(hourly)
 
 if __name__=="__main__":
     day_forecast_temp=Day_Forecast(**{"number": 1,
