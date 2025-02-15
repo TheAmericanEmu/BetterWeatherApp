@@ -1,21 +1,30 @@
-MIT License
+MIT-Style Modified Commercial License
 
-Copyright (c) 2023 TheAmericanEmu
+Copyright (c) 2025 Colin Harrington-Ding
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+of this software and associated documentation files (the "Software"), to use,
+modify, distribute, and sublicense derivative works, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+Modification & Derivative Works: You may modify the Software and create derivative works.
+However, any derivative work must be sufficiently distinct from the original Software to
+avoid direct replication.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+Commercial Use: You are permitted to sell, license, or otherwise commercially distribute
+derivative works, provided they are substantially different from the original Software.
+
+Attribution: Any derivative work must include attribution to the original author
+in a reasonable manner, such as in documentation or within the software itself.
+
+No Direct Resale: You may not distribute or sell the original Software without modifications.
+
+Indemnity: The Software is provided "as is," without warranty of any kind, express or implied.
+The original author shall not be held liable for any claims, damages, or liabilities arising
+from the use, distribution, or modification of the Software or its derivatives.
+
+License Notice: This license must be included in all copies or substantial portions of the Software.
+
+Patent Grant: If you contribute to the Software, you grant a non-exclusive, worldwide,
+royalty-free license under any patent rights you hold that are necessary to use or distribute the contributions.
+
+BY USING THIS SOFTWARE, YOU AGREE TO ABIDE BY THESE TERMS.
