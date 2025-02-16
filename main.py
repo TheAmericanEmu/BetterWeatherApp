@@ -49,12 +49,12 @@ class Period_Frame(CTkFrame):
         self.wind_speed_low_label.grid(row=5,column=3)
 
 class Hourly_Period_Frame(CTkFrame):
-    def __init__(self, master,source:Day_Forecast, width = 400, height = 450, corner_radius = None, border_width = None, bg_color = "transparent", fg_color = None, border_color = None, background_corner_colors = None, overwrite_preferred_drawing_method = None, **kwargs):
-        super().__init__(master, width, height, corner_radius, border_width, bg_color, fg_color, border_color, background_corner_colors, overwrite_preferred_drawing_method, **kwargs)
+    def __init__(self, master,source:Hourly_Forecast, width = 400, height = 450, corner_radius = None, border_width = None, bg_color = "transparent", fg_color = None, border_color = None, background_corner_colors = None, overwrite_preferred_drawing_method = None, **kwargs):
+        super().__init__(master, width, 260, corner_radius, border_width, bg_color, "#2B719E", border_color, background_corner_colors, overwrite_preferred_drawing_method, **kwargs)
         self.source=source
         self.name_label = CTkLabel(self,text=source.name)
         self.name_label.grid(row=1,column=6,padx=100,pady=0)
-
+        #self.windll.shcore.SetProcessDpiAwareness(2)
         #Start & End times
         self.start_time = CTkLabel(self,text=source.effect_startTime.time())
         self.end_time  = CTkLabel(self,text=source.effect_endTime.time())
@@ -82,13 +82,21 @@ class Hourly_Period_Frame(CTkFrame):
         self.wind_speed_high_label = CTkLabel(self,text=f"High: {high_wind} MPH")
         self.wind_direction = CTkLabel(self,text=f"{source.wind_direction}")
 
-        self.wind_direction.grid(row=5,column=6)
-        self.wind_speed_high_label.grid(row=5,column=8)
-        self.wind_speed_low_label.grid(row=5,column=3)
+        self.wind_direction.grid(row=5,column=6,pady=20)
+        self.wind_speed_high_label.grid(row=5,column=8,pady=20)
+        self.wind_speed_low_label.grid(row=5,column=3,pady=20)
+
+        #Dew Point
+        self.dew_point_label = CTkLabel(self,text=f"Dew Point: {source.dew_point}°F")
+        self.dew_point_label.grid(row=4,column=3)
+
+        #Humidity
+        self.humidity_label= CTkLabel(self,text=f"Humidity: {source.relative_humidity}%")
+        self.humidity_label.grid(row=4,column=8)
 
 class Hourly_Scrolling_Frame(CTkScrollableFrame):
     def __init__(self, master,sources:list, corner_radius = None, border_width = None, bg_color = "transparent", fg_color = None, border_color = None, scrollbar_fg_color = None, scrollbar_button_color = None, scrollbar_button_hover_color = None, label_fg_color = None, label_text_color = None, label_text = "", label_font = None, label_anchor = "center", orientation = "vertical"):
-        super().__init__(master, 500, 200, corner_radius, border_width, "black", fg_color, border_color, scrollbar_fg_color, scrollbar_button_color, scrollbar_button_hover_color, label_fg_color, label_text_color, label_text, label_font, label_anchor, orientation)
+        super().__init__(master, 500, 200, corner_radius, border_width,bg_color , fg_color, border_color, scrollbar_fg_color, scrollbar_button_color, scrollbar_button_hover_color, label_fg_color, label_text_color, label_text, label_font, label_anchor, orientation)
         for i in range(len(sources)-1):
             source=sources[i]
             source.name=f"Hour {i}"
@@ -106,12 +114,12 @@ class main(CTk):
         self.weather_api = Weather_Class(loc[0],loc[1])
         #Make Window
         self.title("Better Weather App")
-        self.geometry("800x500")
+        self.geometry("700x500")
         #Create Variables
         self.current_weather_index=0
         self.weather_frames=[]
         self.hourly_weather_frames=[]
-
+        self.settings=[]
         #Make Row 1 GUI
         self.name_text = CTkLabel(self,30,20,text="Better Weather App")
         self.name_text.grid(row=1,column=5)
@@ -125,6 +133,7 @@ class main(CTk):
         self.back_button= CTkButton(self,text="Back",bg_color="Blue",width=20,command=self.back)
         self.back_button.grid(row=3,column=1,padx=10,pady=30)
         self.next_button.grid(row=3,column=6,padx=10,pady=30)
+        self.after(12)
 
     def update_forecast(self):
         for forecast in self.weather_frames:
@@ -156,13 +165,13 @@ class main(CTk):
     def fill_hourly_list(self)-> None:
         count = 0
         sources:list=[]
-        while count<len(self.weather_api.hourly_forecast):
-            source:Hourly_Forecast = self.weather_api.hourly_forecast[count]
+        for forecast in self.weather_api.hourly_forecast:
+            source:Hourly_Forecast = forecast
             sources.append(source)
             if(source.index%12==0):
                 self.hourly_weather_frames.append(Hourly_Scrolling_Frame(self,sources))
                 sources=[]
-            count+=1
+        self.hourly_weather_frames.append(Hourly_Scrolling_Frame(self,sources))
         self.hourly_weather_frames[0].grid(row=7,column=5,padx=20,pady=10)
         
 

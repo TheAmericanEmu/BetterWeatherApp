@@ -49,6 +49,8 @@ class Day_Forecast:
         self.summary: str = kwargs["shortForecast"]
         self.full_forecast: str = kwargs["detailedForecast"]
 
+
+      
     def __wind_speed_to_tuple(self, value: str) -> tuple:
         """
         Converts a wind speed string into a tuple representing a range.
@@ -75,6 +77,7 @@ class Day_Forecast:
             float: Temperature in Celsius.
         """
         return (self.temperature - 32) * 5/9
+    
 
     def __str__(self) -> str:
         """
@@ -84,6 +87,11 @@ class Day_Forecast:
             str: A formatted string containing the day's name and full forecast description.
         """
         return f"{self.name} {self.full_forecast} \n"
+    
+
+    
+
+
     
 
 if __name__=="__main__":
