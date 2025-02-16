@@ -59,9 +59,9 @@ for hour in forecast["Hourly"]:
 ## 📖 Documentation
 Detailed documentation is available in the GitHub Wiki.
 
-- [Day Forecast](https://github.com/your-username/Weather-Forecast/wiki/Day-Forecast)
-- [Hourly Forecast](https://github.com/your-username/Weather-Forecast/wiki/Hourly-Forecast)
-- [Weather Class](https://github.com/your-username/Weather-Forecast/wiki/Weather-Class)
+- [Day Forecast](https://github.com/TheAmericanEmu/BetterWeatherApp/wiki/Day-Forecast)
+- [Hourly Forecast](https://github.com/TheAmericanEmu/BetterWeatherApp/wiki/Hourly_Forecast)
+- [Weather Class](https://github.com/TheAmericanEmu/BetterWeatherApp/wiki/Weather-Class)
 
 ## 🛠 Dependencies
 - Requests (for API calls)

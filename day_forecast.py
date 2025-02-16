@@ -46,7 +46,6 @@ class Day_Forecast:
         self.wind_direction: str = kwargs["windDirection"]
         self.summary: str = kwargs["shortForecast"]
         self.full_forecast: str = kwargs["detailedForecast"]
-        self.hourly_forecast: list = []
 
     def __wind_speed_to_tuple(self, value: str) -> tuple:
         """
@@ -84,15 +83,6 @@ class Day_Forecast:
         """
         return f"{self.name} {self.full_forecast} \n"
     
-    def assign_hourly(self, hourly) -> None:
-        """
-        Adds an hourly forecast to the hourly_forecast list.
-        
-        Args:
-            hourly: Hourly forecast data to be added.
-        """
-        self.hourly_forecast.append(hourly)
-
 
 if __name__=="__main__":
     day_forecast_temp=Day_Forecast(**{"number": 1,
