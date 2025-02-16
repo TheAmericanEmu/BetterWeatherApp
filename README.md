@@ -83,3 +83,4 @@ If you like this project, consider giving it a ⭐ Star on GitHub!
 
 ## 🔗 Connect with Me:
 - 📧 Email: thegreatemu02@example.com
+- ☕ Buy Me a Coffee: https://buymeacoffee.com/theamericanemu?new=1
