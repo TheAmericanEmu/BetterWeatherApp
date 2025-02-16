@@ -1,11 +1,14 @@
 {
     "cSpell.words": [
         "Chigco",
+        "customtkinter",
         "dateutil",
         "dewpoint",
         "getweather",
         "grindpoints",
         "haines",
+        "padx",
+        "pady",
         "regtime"
     ]
 }
