@@ -1,3 +1,5 @@
+from dateutil import parser
+
 class Day_Forecast:
     """
     Represents a daily weather forecast with various attributes such as temperature, wind speed, and precipitation probability.
