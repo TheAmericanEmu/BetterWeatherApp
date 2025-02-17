@@ -1,102 +1,64 @@
 # BetterWeatherApp
 
-## 🌦 Weather Forecast API Client
+## Overview
 
-This project fetches and processes **weather data** from the **National Weather Service API**.  
-It provides **daily** and **hourly** forecasts using the `Day_Forecast`, `Hourly_Forecast`, and `Weather_Class` modules.
+BetterWeatherApp is an open-source Python application that fetches and processes real-time weather data from the National Weather Service API. It provides both daily and hourly forecasts, allowing users to stay updated with the latest weather information.
 
----
+## Features
 
-## 🚀 Features
+- **Real-Time Data**: Retrieves current weather data based on specified latitude and longitude.
+- **Daily Forecasts**: Offers daily weather summaries.
+- **Hourly Forecasts**: Provides detailed hourly weather information.
+- **Temperature Conversion**: Supports conversion between Fahrenheit and Celsius.
+- **Formatted Summaries**: Displays weather data in a user-friendly format.
 
-- Fetches real-time weather data based on **latitude and longitude**.
-- Supports **daily forecasts** (`Day_Forecast`).
-- Supports **hourly forecasts** (`Hourly_Forecast`).
-- Converts temperatures between **Fahrenheit** and **Celsius**.
-- Prints **formatted weather summaries**.
+## Installation
 
----
+1. **Clone the Repository**:
 
-## 🛠 Installation
+   ```bash
+   git clone https://github.com/TheAmericanEmu/BetterWeatherApp.git
+   cd BetterWeatherApp
+   ```
 
-### 1️⃣ Clone the Repository
+2. **Install Dependencies**:
 
-```bash
-git clone https://github.com/your-username/Weather-Forecast.git
-cd Weather-Forecast
-```
+   Ensure you have Python 3.x installed. Install required packages using:
 
-### 2️⃣ Install Dependencies
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-Ensure you have Python 3.x installed, then install dependencies:
+   *Note: The `requirements.txt` file should list all necessary dependencies.*
 
-```bash
-pip install requests python-dateutil
-```
+## Usage
 
-## 📌 Usage
+1. **Set Up Configuration**:
 
-🔹 Run the Script
+   - Create a `build_config.json` file in the root directory with your configuration settings. This file should include your API key and other necessary parameters.
 
-```bash
-python weather_script.py
-```
+2. **Run the Application**:
 
-🔹 Example Output:
+   Execute the main script to fetch and display weather information:
 
-```vbnet
-Fetching weather data...
-Monday: Sunny with a high of 75°F
-  - At 10:00 AM, it will be 70°F with a 10% chance of rain.
-  - At 11:00 AM, it will be 72°F with a 5% chance of rain.
-```
+   ```bash
+   python main.py
+   ```
 
-🔹 Importing in Another Project
-You can import and use Weather_Class in your own Python scripts:
+   Follow the on-screen prompts to input your desired location (latitude and longitude).
 
-```python
-from weather_class import Weather_Class
+## Modules
 
-app = Weather_Class(37.7749, -122.4194)  # Example: San Francisco, CA
-forecast = app.get_forecast(0)
+- **`weather_class.py`**: Contains the `Weather` class responsible for interacting with the National Weather Service API and processing the data.
 
-print(forecast["12Hour"])  # Prints 12-hour forecast
-for hour in forecast["Hourly"]:
-    print(hour)  # Prints hourly forecast
-```
+- **`day_forecast.py`**: Defines the `DayForecast` class for handling daily weather data.
 
-## 📖 Documentation
+- **`hourly_forecast.py`**: Defines the `HourlyForecast` class for managing hourly weather data.
 
-Detailed documentation is available in the GitHub Wiki.
+## Contributing
 
-- [Day Forecast](https://github.com/TheAmericanEmu/BetterWeatherApp/wiki/Day-Forecast)
-- [Hourly Forecast](https://github.com/TheAmericanEmu/BetterWeatherApp/wiki/Hourly_Forecast)
-- [Weather Class](https://github.com/TheAmericanEmu/BetterWeatherApp/wiki/Weather-Class)
+Contributions are welcome! Please fork the repository and submit a pull request with your changes. Ensure that your code adheres to the project's coding standards and includes appropriate tests.
 
-## 🛠 Dependencies
+## License
 
-- Requests (for API calls)
-- Python-Dateutil (for parsing dates)
-
-## 📜 License
-
-This project is licensed under the MIT License. See LICENSE for details.
-
-## 💡 Contributing
-
-Feel free to fork this repository and submit a pull request.  
-For major changes, please open an issue first to discuss what you'd like to improve.
-
-## 🌎 API Source
-
-This project fetches weather data from:  
-🔗 National Weather Service API
-
-## ⭐ Support
-
-If you like this project, consider giving it a ⭐ Star on GitHub!
-
-## 🔗 Connect with Me
-
-- 📧 Email: <thegreatemu02@example.com>
-- ☕ Buy Me a Coffee: <https://www.buymeacoffee.com/TheAmericanEmu>
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
