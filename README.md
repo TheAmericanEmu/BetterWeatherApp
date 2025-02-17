@@ -32,15 +32,15 @@ BetterWeatherApp is an open-source Python application that fetches and processes
 
    *Note: The `requirements.txt` file should list all necessary dependencies.*
 
-###Builds
+### Builds
 
-####Debug
--Unstable
--Newest Features*
+#### Debug
+- Unstable
+- Newest Features*
 
 *Note All Features in Debug will make it into Stable builds 
 
-####Stable
+#### Stable
 - More Stable
 - Features Will Work
 
