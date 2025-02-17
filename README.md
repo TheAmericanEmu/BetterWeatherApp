@@ -14,6 +14,7 @@ BetterWeatherApp is an open-source Python application that fetches and processes
 
 ## Installation
 
+### Clone The Repo
 1. **Clone the Repository**:
 
    ```bash
@@ -31,15 +32,24 @@ BetterWeatherApp is an open-source Python application that fetches and processes
 
    *Note: The `requirements.txt` file should list all necessary dependencies.*
 
+###Builds
+
+####Debug
+-Unstable
+-Newest Features*
+
+*Note All Features in Debug will make it into Stable builds 
+
+####Stable
+- More Stable
+- Features Will Work
+
+
 ## Usage
 
-1. **Set Up Configuration**:
+ **Run the Application**:
 
-   - Create a `build_config.json` file in the root directory with your configuration settings. This file should include your API key and other necessary parameters.
-
-2. **Run the Application**:
-
-   Execute the main script to fetch and display weather information:
+  Execute the main script to fetch and display weather information:
 
    ```bash
    python main.py
